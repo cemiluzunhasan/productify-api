@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "1cedeaeb-224e-4004-a747-05efe800e8e7",
+		"name": "NODE JS API",
+		"description": "This documentation will explain how endpoints of Productify works.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "POST /products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Elephant Chair\",\n  \"brand\": \"Vitra\",\n  \"description\": \"The Eames’ originally envisioned their now iconic Elephant in plywood, back at its conception in 1945. However, due to technological restraints at the time it was never produced. The elephant was also originally environed as a child’s toy, and while still true today we can’t help but covet for ourselves. A playful design hero, in it’s true form. This is a Demo Online Store. No orders shall be fulfilled. Purchase this product on vitra.com.\",\n  \n  \"numberOfReviews\": \"10\",\n  \"price\": 200,\n  \"currency\": \"$\",\n  \"stock\": 100,\n  \"color\": \"Brown\",\n  \"material\": \"Wood\",\n  \"categories\": [\"Sports\", \"Home\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						},
+						"description": "It adds a product to the database"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						},
+						"description": "It returns all of the products in the database"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /products/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Updated Product\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/5eb46eb9fbe32352d00bd4dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"5eb46eb9fbe32352d00bd4dd"
+							]
+						},
+						"description": "It updates a product's property. This property can be any of the property in POST request."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /products/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/5eb46eb9fbe32352d00bd4dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"5eb46eb9fbe32352d00bd4dd"
+							]
+						},
+						"description": "It deletes a product with a specified id"
+					},
+					"response": []
+				}
+			],
+			"description": "It adds a product to the database",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "POST /register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"cmluzunhasannn@gmail.com\",\n\t\"password\": \"cemil123.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						},
+						"description": "It takes email and password"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"cmluzunhasannn@gmail.com\",\n\t\"password\": \"cemil123.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login endpoint, it returns token and user id"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI0MmVmYzZhMDc0MDM0ZDFkZWNlNzMiLCJpYXQiOjE1ODg4Njk5MDZ9.mARLDTUvaNAcLCyyJouXTkT44op6zIWElvVMFNsEz-M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"me"
+							]
+						},
+						"description": "SAMPLE RESPONSE"
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication",
+			"protocolProfileBehavior": {}
+		}
+	]
+}
